@@ -14,7 +14,7 @@
 ## Using
 
 ```php
-$parser = new MetricParser($rawMetric);
+$parser = new hpom\MetricParser($rawMetric);
 $array = $parser->parse();
 ```
 
