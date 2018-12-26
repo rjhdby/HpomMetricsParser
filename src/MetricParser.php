@@ -60,8 +60,7 @@ class MetricParser
         return $tail;
     }
 
-    private
-    function add(array &$tail, $tag, $value) {
+    private function add(array &$tail, $tag, $value) {
         if (is_scalar($value)) {
             $value = trim($value, '"');
         }
@@ -70,7 +69,7 @@ class MetricParser
 
             return;
         }
-        if (!is_array($tail[ $tag ])) {
+        if (!\is_array($tail[ $tag ])) {
             $tail[ $tag ] = ['_value' => $tail[ $tag ]];
         } else if (!isset($tail[ $tag ][0])) {
             $tail[ $tag ] = [$tail[ $tag ]];
@@ -78,8 +77,7 @@ class MetricParser
         $tail[ $tag ][] = $value;
     }
 
-    private
-    function collect(array &$array) {
+    private function collect(array &$array) {
         $out  = [];
         $temp = [];
         foreach ($array as $key => $value) {
@@ -97,25 +95,22 @@ class MetricParser
         $array = $out;
     }
 
-    private
-    function nextLevel(): int {
+    private function nextLevel(): int {
         return isset($this->raw[ $this->i + 1 ])
-            ? strlen($this->raw[ $this->i + 1 ]) - strlen(ltrim($this->raw[ $this->i + 1 ]))
+            ? \strlen($this->raw[ $this->i + 1 ]) - \strlen(ltrim($this->raw[ $this->i + 1 ]))
             : -1;
     }
 
-    private
-    function parseRow($string): array {
+    private function parseRow($string): array {
         $out   = ltrim($string);
-        $level = strlen($string) - strlen($out);
+        $level = \strlen($string) - \strlen($out);
         $tag   = trim(strstr($out . ' ', ' ', true));
         $value = trim(strstr($out, ' '));
 
         return [$level, $tag, $value];
     }
 
-    private
-    function prepareValue($value): string {
+    private function prepareValue($value): string {
         if (substr_count(str_replace('\\"', '', $value), '"') % 2 === 0) {
             return $value;
         }
