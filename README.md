@@ -36,7 +36,7 @@ LOGFILE "online_log"
         CHSET ASCII
         FROM_LAST_POS
         SEVERITY Critical
-        NODE IP 172.19.22.150  "clients-db.moscow.alfaintra.net"
+        NODE IP 172.1.1.1  "server.address"
         APPLICATION "DB"
         MSGGRP "Informix"
         OBJECT "OnlineLog"
@@ -76,7 +76,7 @@ array (
       'CHSET' => 'ASCII',
       'FROM_LAST_POS' => '',
       'SEVERITY' => 'Critical',
-      'NODE' => 'IP 172.19.22.150  "server.address',
+      'NODE' => 'IP 172.1.1.1  "server.address',
       'APPLICATION' => 'DB',
       'MSGGRP' => 'Informix',
       'OBJECT' => 'OnlineLog',
