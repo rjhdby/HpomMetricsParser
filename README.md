@@ -29,9 +29,9 @@ Input text
 SYNTAX_VERSION 5
 
 
-LOGFILE "online_log_clients_db"
-        DESCRIPTION "log online_clients-db.log"
-        LOGPATH "/usr/informix/LOGS/online_clients-db.log"
+LOGFILE "online_log"
+        DESCRIPTION "log online.log"
+        LOGPATH "/usr/LOGS/online.log"
         INTERVAL "5m"
         CHSET ASCII
         FROM_LAST_POS
@@ -67,16 +67,16 @@ array (
   'SYNTAX_VERSION' => '5',
   'LOGFILE' => 
   array (
-    '_value' => 'online_log_clients_db',
+    '_value' => 'online_log',
     0 => 
     array (
-      'DESCRIPTION' => 'log online_clients-db.log',
-      'LOGPATH' => '/usr/informix/LOGS/online_clients-db.log',
+      'DESCRIPTION' => 'log online.log',
+      'LOGPATH' => '/usr/LOGS/online.log',
       'INTERVAL' => '5m',
       'CHSET' => 'ASCII',
       'FROM_LAST_POS' => '',
       'SEVERITY' => 'Critical',
-      'NODE' => 'IP 172.19.22.150  "clients-db.moscow.alfaintra.net',
+      'NODE' => 'IP 172.19.22.150  "server.address',
       'APPLICATION' => 'DB',
       'MSGGRP' => 'Informix',
       'OBJECT' => 'OnlineLog',
